@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Canvas Drawing</title>
+</head>
+<body>
+<h1>Canvas Drawing</h1>
+<canvas id="myCanvas" width="300" height="300" style="border:1px solid #000000;"></canvas>
+
+<script>
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    // Draw a rectangle with a different color and position
+    ctx.fillStyle = "red";
+    ctx.fillRect(20, 20, 120, 80);
+
+    // Draw a circle with a gradient fill
+    var gradient = ctx.createLinearGradient(0, 0, 200, 0);
+    gradient.addColorStop(0, "green");
+    gradient.addColorStop(1, "yellow");
+
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(150, 150, 60, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.stroke();
+
+    // Draw a line from top-left to bottom-right
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(300, 300);
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // Draw text on the canvas
+    ctx.font = "20px Arial";
+    ctx.fillStyle = "black";
+    ctx.fillText("Canvas Drawing", 80, 280);
+</script>
+</body>
+</html>
